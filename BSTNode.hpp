@@ -14,7 +14,7 @@ public:
    *  no parent, and no children.
    */
   BSTNode(const Data & d): data(d) {
-    left = right = parent = 0;
+    left = right = parent = NULL;
   }
 
   BSTNode<Data>* left;
@@ -33,10 +33,10 @@ public:
     /* Determine if the right child or parent is successor. If neither, and
        parent exists, find out if one of the parents ancestors is the successor.
        If no successor exists, return 0. */
-    if (right!=0) {
+    if (right!=NULL) {
       return right->leftmostNode();
-    } else if (parent==0) {
-      return 0;
+    } else if (parent==NULL) {
+      return NULL;
     } else if (this==parent->left) {
       return parent;
     } else {
@@ -51,7 +51,7 @@ public:
    */
   BSTNode<Data>* leftmostNode() {    
     /* if this has a left child, recurse on that. Otherwise, return this. */
-    if (left!=0) {
+    if (left!=NULL) {
       return left->leftmostNode();
     } else {
       return this;
@@ -68,8 +68,8 @@ public:
    */
   BSTNode<Data>* ancestralSuccessor() {
     /* Find and return a successor that is an ancestor, if it exists. */
-    if (parent==0) {
-      return 0;
+    if (parent==NULL) {
+      return NULL;
     } else if (this!=parent->left) {
       return parent;
     } else {
