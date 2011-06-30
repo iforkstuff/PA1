@@ -27,7 +27,9 @@ public:
    *  or 0 if there is none.
    */ // TODO
   BSTNode<Data>* successor() {
-    
+    /* Determine if the right child or parent is successor. If neither, and
+       parent exists, find out if one of the parents ancestors is the successor.
+       If no successor exists, return 0. */
     if (right!=NULL) {
       return right;
     } else if (parent==NULL) {
@@ -39,7 +41,16 @@ public:
     }
   }
   
+  
+  /** Return the inorder ancestral successor of this BSTNode in a BST, or 
+   *  0 if none.
+   *  PRECONDITION:this BSTNode is a node in a BST.
+   *  POSTCONDITION:  the BST is unchanged.
+   *  RETURNS: the BSTNode that is the inorder ancestral successor of this 
+   *  BSTNode, or 0 if there is none.
+   */
   BSTNode<Data>* ancestralSuccessor() {
+    /* Find and return a successor that is an ancestor, if it exists. */
     if (parent==NULL) {
       return NULL;
     } else if (this!=parent->left) {
