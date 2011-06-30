@@ -1,6 +1,9 @@
 #ifndef BSTNODE_HPP
 #define BSTNODE_HPP
 
+#ifndef NULL
+#define NULL 0
+#endif
 
 template<typename Data>
 class BSTNode {
