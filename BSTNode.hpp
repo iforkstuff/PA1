@@ -31,13 +31,27 @@ public:
        parent exists, find out if one of the parents ancestors is the successor.
        If no successor exists, return 0. */
     if (right!=NULL) {
-      return right;
+      return right->leftmostNode();
     } else if (parent==NULL) {
       return NULL;
     } else if (this==parent->left) {
       return parent;
     } else {
-      return parent.ancestralSuccessor();
+      return parent->ancestralSuccessor();
+    }
+  }
+  
+  /** Return the leftmost node of the subtree.
+   *  PRECONDITION: this BSTNode is a node in a BST.
+   *  POSTCONDITION: the BST is unchanged.
+   *  RETURNS: The BSTNode that is the leftmost node of the subtree.
+   */
+  BSTNode<Data>* leftmostNode() {    
+    /* if this has a left child, recurse on that. Otherwise, return this. */
+    if (left!=NULL) {
+      return left->leftmostNode();
+    } else {
+      return this;
     }
   }
   
