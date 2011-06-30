@@ -33,10 +33,10 @@ public:
     /* Determine if the right child or parent is successor. If neither, and
        parent exists, find out if one of the parents ancestors is the successor.
        If no successor exists, return 0. */
-    if (right!=NULL) {
+    if (right!=0) {
       return right->leftmostNode();
-    } else if (parent==NULL) {
-      return NULL;
+    } else if (parent==0) {
+      return 0;
     } else if (this==parent->left) {
       return parent;
     } else {
@@ -51,7 +51,7 @@ public:
    */
   BSTNode<Data>* leftmostNode() {    
     /* if this has a left child, recurse on that. Otherwise, return this. */
-    if (left!=NULL) {
+    if (left!=0) {
       return left->leftmostNode();
     } else {
       return this;
@@ -68,8 +68,8 @@ public:
    */
   BSTNode<Data>* ancestralSuccessor() {
     /* Find and return a successor that is an ancestor, if it exists. */
-    if (parent==NULL) {
-      return NULL;
+    if (parent==0) {
+      return 0;
     } else if (this!=parent->left) {
       return parent;
     } else {
