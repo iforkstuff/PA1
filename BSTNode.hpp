@@ -27,9 +27,29 @@ public:
    *  or 0 if there is none.
    */ // TODO
   BSTNode<Data>* successor() {
-
+    
+    if (right!=NULL) {
+      return right;
+    } else if (parent==NULL) {
+      return NULL;
+    } else if (this==parent->left) {
+      return parent;
+    } else {
+      return parent.ancestralSuccessor();
+    }
   }
-
+  
+  BSTNode<Data>* ancestralSuccessor() {
+    if (parent==NULL) {
+      return NULL;
+    } else if (this!=parent->left) {
+      return parent;
+    } else {
+      return parent->ancestralSuccessor();
+    }
+  }
+  
+  
 }; 
 
 #endif // BSTNODE_HPP
