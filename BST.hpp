@@ -117,6 +117,15 @@ public:
   /** Return an iterator pointing to the first item in the BST.
    */ // TODO
   iterator begin() const {
+    BSTNode<Data> * curr = root;
+    
+    if (curr!=NULL) {
+      while (curr->left!=NULL) {
+        curr = curr->left;
+      }
+    }
+    
+    return typename BST<Data>::iterator(curr);
   }
 
   /** Return an iterator pointing past the last item in the BST.
