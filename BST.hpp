@@ -65,7 +65,7 @@ public:
    *  Delete every node in this BST.
    */ // TODO
   virtual ~BST() {
-	  /*destroy(root);*/
+	  destroy(root);
     root = NULL;
 		return;  
   }
