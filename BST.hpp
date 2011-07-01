@@ -146,14 +146,16 @@ public:
   
 private:
   
-  /* Recursively destroy the subtree */
-  void destroy(BSTNode<Data> * sRoot) {
+  /* Recursively destroy the subtree. Setting parent, left, and right to NULL
+     may not be strictly necessary, but may help diagnose dangling pointers. */
+  static void destroy(BSTNode<Data> * sRoot) {
     if (sRoot != NULL) {
       destroy(sRoot->left);
       sRoot->left = NULL;
       destroy(sRoot->right);
       sRoot->right = NULL;
-      delete this;
+      sRoot->parent = NULL;
+      delete sRoot;
     }
     
     return;
