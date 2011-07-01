@@ -28,7 +28,7 @@ protected:
    */ // TODO
   virtual BSTNode<Data>* newNode(const Data & item) {
     BSTNode<Data>** curr = &root;           //The current node pointer
-    BSTNode<Data>* parent;                    //The current's parent
+    BSTNode<Data>* parent = NULL;           //The current's parent
     
     /* Find out where to insert the new node, or return NULL if duplicate */
     while ((*curr)!=NULL) {

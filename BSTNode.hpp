@@ -2,7 +2,7 @@
 #define BSTNODE_HPP
 #include <iostream>
 #ifndef NULL
-#define NULL 0
+#define NULL 0L
 #endif
 
 template<typename Data>
@@ -70,10 +70,10 @@ public:
     /* Find and return a successor that is an ancestor, if it exists. */
     if (parent==NULL) {
       return NULL;
-    } else if (this==parent->left) {
-      return parent;
-    } else {
+    } else if (this==parent->right) {
       return parent->ancestralSuccessor();
+    } else {
+      return parent;
     }
   }
   
