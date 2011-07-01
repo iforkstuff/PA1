@@ -29,7 +29,7 @@ protected:
   /** Given a Data item, insert it in this BST.  Return a pointer to
    *  the new BSTNode that holds the item, or 0 if the item was
    *  already in this BST.
-   */ // TODO
+   */ // DONE
   virtual BSTNode<Data>* newNode(const Data & item) {
     BSTNode<Data>** curr = &root;           //The current node pointer
     BSTNode<Data>* parent = NULL;           //The current's parent
@@ -67,7 +67,7 @@ public:
 
   /** Default destructor.
    *  Delete every node in this BST.
-   */ // TODO
+   */ // DONE
   virtual ~BST() {
 	  destroy(root);
     root = NULL;
@@ -91,7 +91,7 @@ public:
   /** Find a Data item in the BST.
    *  Return an iterator pointing to the item, or the end
    *  iterator if the item is not in the BST.
-   */ // TODO
+   */ // DONE
   iterator find(const Data& item) const {
     BSTNode<Data> * curr = root;    //The current node.
      
@@ -110,13 +110,13 @@ public:
 
   
   /** Return the number of items currently in the BST.
-   */ // TODO
+   */ // DONE
   unsigned int size() const {
     return isize;
   }
 
   /** Return true if the BST is empty, else false.
-   */ // TODO
+   */ // DONE
   bool empty() const {
 	  if (isize == 0)
 		  return true;
@@ -125,7 +125,7 @@ public:
   }
 
   /** Return an iterator pointing to the first item in the BST.
-   */ // TODO
+   */ // DONE
   iterator begin() const {
     BSTNode<Data> * curr = root;
     

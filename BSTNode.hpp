@@ -32,7 +32,7 @@ public:
    *  POSTCONDITION:  the BST is unchanged.
    *  RETURNS: the BSTNode that is the inorder successor of this BSTNode,
    *  or 0 if there is none.
-   */ // TODO
+   */ // DONE
   BSTNode<Data>* successor() {
     /* Determine if the right child or parent is successor. If neither, and
        parent exists, find out if one of the parents ancestors is the successor.
