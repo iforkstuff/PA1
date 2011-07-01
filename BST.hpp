@@ -26,7 +26,7 @@ protected:
    *  already in this BST.
    */ // TODO
   virtual BSTNode<Data>* newNode(const Data & item) {
-
+    
   }
 
 
@@ -76,6 +76,19 @@ public:
    *  iterator if the item is not in the BST.
    */ // TODO
   iterator find(const Data& item) const {
+    BSTNode<Data> * curr = root;    //The current node.
+    
+    
+    /* Traverse the tree in search of a BSTNode containing item. */
+    while (curr!=NULL && curr->data!=item) {
+      if (curr->data > item) {
+        curr = curr->left;
+      } else {
+        curr = curr->right;
+      }
+    }
+    
+    return BSTIterator<Data>(curr);
   }
 
   
