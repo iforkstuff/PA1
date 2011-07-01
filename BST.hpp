@@ -40,6 +40,7 @@ protected:
     }
     
     (*curr) = new BSTNode<Data>(item);
+    isize++;
     return *curr;    
   }
 
@@ -60,16 +61,9 @@ public:
    *  Delete every node in this BST.
    */ // TODO
   virtual ~BST() {
-	  int i;
-	  
-	  if (isize == 0) {
-		  return 0;
-	  } else {
-		  for (i=0; i < isize; i++) {
-				delete 
-		  }
-	  }
-		  
+	  destroy(root);
+    root = NULL;
+		return;  
   }
 
   /** Insert a Data item in the BST.
@@ -108,6 +102,7 @@ public:
   /** Return the number of items currently in the BST.
    */ // TODO
   unsigned int size() const {
+    return isize;
   }
 
   /** Return true if the BST is empty, else false.
@@ -128,6 +123,21 @@ public:
    */
   iterator end() const {
     return typename BST<Data>::iterator(0);
+  }
+  
+private:
+  
+  /* Recursively destroy the subtree */
+  void destroy(BSTNode<Data> * sRoot) {
+    if (sRoot != NULL) {
+      destroy(sRoot->left);
+      sRoot->left = NULL;
+      destroy(sRoot->right);
+      sRoot->right = NULL;
+      delete this;
+    }
+    
+    return;
   }
 
  };
