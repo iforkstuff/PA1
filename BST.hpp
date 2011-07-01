@@ -44,7 +44,7 @@ protected:
     
     (*curr) = new BSTNode<Data>(item);
     (*curr)->parent = parent;
-    isize++;
+
     return *curr;    
   }
 
@@ -78,6 +78,7 @@ public:
   virtual bool insert(const Data& item) {
     BSTNode<Data> *n = newNode(item);
     if(0 == n) return false;
+    isize++;    
     repair(n);
     return true;
   }
