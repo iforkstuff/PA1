@@ -107,6 +107,25 @@ public:
   /** Return the number of items currently in the BST.
    */ // TODO
   unsigned int size() const {
+	  BSTNode<Data> * curr = root;
+	  BSTNode<Data> * parent = root;
+	  
+	  while (curr!=NULL) {
+		  if (curr->left!=NULL) {
+			  parent = curr;
+			  curr = curr->left;
+			  isize++;
+		  } else if (curr->right!=NULL) {
+			  parent = curr;
+			  curr = curr->right;
+			  isize++;
+		  } else if (parent->right!=NULL) {
+			  curr = parent->right;
+			  isize++;
+		  } else {
+			  //TODO
+		  }
+	  }
     return isize;
   }
 
