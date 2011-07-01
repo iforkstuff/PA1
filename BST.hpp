@@ -26,7 +26,21 @@ protected:
    *  already in this BST.
    */ // TODO
   virtual BSTNode<Data>* newNode(const Data & item) {
+    BSTNode<Data>** curr = &root;           //The current node
     
+    /* Find out where to insert the new node, or return NULL if duplicate */
+    while ((*curr)!=NULL) {
+      if ((*curr)->data == item) {
+        return NULL;
+      } else if ((*curr)->data < item) {
+        curr = &((*curr)->left);
+      } else {
+        curr = &((*curr)->right);
+      }
+    }
+    
+    (*curr) = new BSTNode<Data>(item);
+    return *curr;    
   }
 
 
@@ -77,8 +91,7 @@ public:
    */ // TODO
   iterator find(const Data& item) const {
     BSTNode<Data> * curr = root;    //The current node.
-    
-    
+        
     /* Traverse the tree in search of a BSTNode containing item. */
     while (curr!=NULL && curr->data!=item) {
       if (curr->data > item) {
