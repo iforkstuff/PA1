@@ -1,3 +1,7 @@
+/** Authors:
+ *  Aria Arasteh, aarasteh, A08557093
+ *  David Yoo, dayoo, A07865444
+ */
 #ifndef BSTNODE_HPP
 #define BSTNODE_HPP
 #include <iostream>
